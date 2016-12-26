@@ -1,2 +1,2 @@
 # peptalk
-An Amazon Alexa skill which recites a random Python PEP on invocation
+An Amazon Alexa skill which describes the gist of a specified Python PEP on invocation.
