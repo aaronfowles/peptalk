@@ -114,6 +114,7 @@ def get_pep(intent, session):
         pep_number = intent['slots']['pep']['value']
         session_attributes = {'pep': pep_number}
         pep_text = get_pep_text(pep_number)
+        card_title = pep_text[:pep_text.index('.')]
         speech_output = pep_text
         reprompt_text = "Ask about another pep if you want."
     else:
