@@ -30,8 +30,8 @@ obj_pep_text['20'] = "PEP 20 - The Zen of Python. Beautiful is better than ugly.
                     "In the face of ambiguity, refuse the temptation to guess. There should be one-- and preferably only one --obvious way to do it. Although that way may not be obvious at first unless you're Dutch. Now is better than never. " + \
                     "Although never is often better than *right* now. If the implementation is hard to explain, it's a bad idea. If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea -- let's do more of those!"
 obj_pep_text['101'] = "PEP 101 - Doing Python Releases 101. Making a Python release is a thrilling and crazy process.  You've heard the expression herding cats?  Imagine trying to also saddle those purring little creatures up, and ride them into town, with some of their " + \
-                    "buddies firmly attached to your bare back, anchored by newly sharpened claws.  At least they're cute, you remind yourself. Actually, no that's a slight exaggeration <wink>.  The Python release process has steadily improved over the years and now, with the help of our amazing community, is really not too difficult. " + \
-                    "This PEP attempts to collect, in one place, all the steps needed to make a Python release.  It is organized as a recipe and you can actually print this out and check items off as you complete them."
+                    "buddies firmly attached to your bare back, anchored by newly sharpened claws.  At least they're cute, you remind yourself. Actually, no that's a slight exaggeration.  The Python release process has steadily improved over the years and now, with the help of our amazing community, is really not too difficult. " + \
+                    "This PEP attempts to collect, in one place, all the steps needed to make a Python release.  It is organized as a recipe and you can actually print this out and check items off as you complete them. "
 # --------------- Helpers that build all of the responses ----------------------
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
