@@ -25,6 +25,11 @@ obj_pep_text['12'] = "This PEP provides a boilerplate or sample template for cre
                     "The source for this (or any) PEP can be found in the PEPs repository, viewable on the web at https://github.com/python/peps/"
 obj_pep_text['512'] = "PEP 512 - Migrating from hg.python.org to GitHub. This PEP outlines the steps required to migrate Python's development process from Mercurial as hosted at hg.python.org to Git on GitHub." + \
                     "Meeting the minimum goals of this PEP should allow for the development process of Python to be as productive as it currently is, and meeting its extended goals should improve the development process from its status quo."
+obj_pep_text['20'] = "PEP 20 - The Zen of Python. Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested." + \
+                    "Sparse is better than dense. Readability counts. Special cases aren't special enough to break the rules. Although practicality beats purity. Errors should never pass silently. Unless explicitly silenced." + \
+                    "In the face of ambiguity, refuse the temptation to guess. There should be one-- and preferably only one --obvious way to do it. Although that way may not be obvious at first unless you're Dutch. Now is better than never." + \
+                    "Although never is often better than *right* now. If the implementation is hard to explain, it's a bad idea. If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea -- let's do more of those!"
+
 # --------------- Helpers that build all of the responses ----------------------
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
