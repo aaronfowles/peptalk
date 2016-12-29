@@ -127,11 +127,10 @@ def get_help(intent, session):
     session_attributes = {}
     should_end_session = False
 
-    else:
-        speech_output = "You may ask me to read any of the Python Enhancement Proposals by number. " \
+    speech_output = "You may ask me to read any of the Python Enhancement Proposals by number. " \
                         "For example, I can read you Proposal eight if you say, read me " \
                         "Pep eight. What would you like me to do? "
-        reprompt_text = speech_output
+    reprompt_text = speech_output
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -167,7 +166,7 @@ def on_intent(intent_request, session):
     # Dispatch to your skill's intent handlers
     if intent_name == "GetPep":
         return get_pep(intent, session)
-    if intent_name == "AMAZON.HelpIntent"
+    if intent_name == "AMAZON.HelpIntent":
         return get_help(intent, session)
     else:
         raise ValueError("Invalid intent")
