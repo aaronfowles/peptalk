@@ -72,10 +72,7 @@ def get_welcome_response():
 
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to Pep Talk. " \
-                    "You may ask me to read any of Python Enhancement " \
-                    "Proposal eight, for example by saying, read me " \
-                    "Pep eight."
+    speech_output = "Welcome to Pep Talk. "
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "Ask me to read you a pep. "
@@ -98,7 +95,7 @@ def get_pep_text(pep_number):
     try:
         ret_text = obj_pep_text[pep_number]
     except KeyError as e:
-        ret_text = "I don't know that pep."
+        ret_text = "I don't know that pep. Please try another. "
     return ret_text
 
 
@@ -121,6 +118,20 @@ def get_pep(intent, session):
         speech_output = "I didn't recognise the request. " \
                         "Please try again."
         reprompt_text = "Ask me about another pep."
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+
+def get_help(intent, session):
+    card_title = "How to use PEP talk"
+    session_attributes = {}
+    should_end_session = False
+
+    else:
+        speech_output = "You may ask me to read any of the Python Enhancement Proposals by number. " \
+                        "For example, I can read you Proposal eight if you say, read me " \
+                        "Pep eight. What would you like me to do? "
+        reprompt_text = speech_output
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -156,6 +167,8 @@ def on_intent(intent_request, session):
     # Dispatch to your skill's intent handlers
     if intent_name == "GetPep":
         return get_pep(intent, session)
+    if intent_name == "AMAZON.HelpIntent"
+        return get_help(intent, session)
     else:
         raise ValueError("Invalid intent")
 
