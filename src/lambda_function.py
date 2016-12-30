@@ -4,7 +4,7 @@
 from __future__ import print_function
 
 obj_pep_text = {}
-obj_pep_text['1'] = "PEP stands for Python Enhancement Proposal. A PEP is a design document providing information to the Python community, or describing a new feature for Python or its processes or environment. The PEP should provide a concise technical specification of the feature and a rationale for the feature. " + \
+obj_pep_text['1'] = "PEP 1 - PEP Purpose and Guidelines. PEP stands for Python Enhancement Proposal. A PEP is a design document providing information to the Python community, or describing a new feature for Python or its processes or environment. The PEP should provide a concise technical specification of the feature and a rationale for the feature. " + \
                     "We intend PEPs to be the primary mechanisms for proposing major new features, for collecting community input on an issue, and for documenting the design decisions that have gone into Python. The PEP author is responsible for building consensus within the community and documenting dissenting opinions. " + \
                     "Because the PEPs are maintained as text files in a versioned repository, their revision history is the historical record of the feature proposal."
 obj_pep_text['4'] = "PEP 4 - Deprecation of Standard Modules. When new modules were added to the standard Python library in the past, it was not possible to foresee whether they would still be useful in the future. Even though Python Comes With Batteries Included, batteries may discharge over time. " + \
