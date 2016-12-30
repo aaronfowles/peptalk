@@ -95,7 +95,7 @@ def get_pep_text(pep_number):
     try:
         ret_text = obj_pep_text[pep_number]
     except KeyError as e:
-        ret_text = "I don't know that pep. Please try another. "
+        ret_text = "Sorry, I don't know that pep. Either it doesn't exist or I have not learnt it yet. Goodbye. "
     return ret_text
 
 
@@ -105,7 +105,7 @@ def get_pep(intent, session):
 
     card_title = intent['name']
     session_attributes = {}
-    should_end_session = False
+    should_end_session = True
 
     if 'pep' in intent['slots']:
         pep_number = intent['slots']['pep']['value']
@@ -113,11 +113,10 @@ def get_pep(intent, session):
         pep_text = get_pep_text(pep_number)
         card_title = pep_text[:pep_text.index('.')]
         speech_output = pep_text
-        reprompt_text = "Ask about another pep if you want."
+        reprompt_text = ""
     else:
-        speech_output = "I didn't recognise the request. " \
-                        "Please try again."
-        reprompt_text = "Ask me about another pep."
+        speech_output = "You didn't specify a number. "
+        reprompt_text = ""
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
