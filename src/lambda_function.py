@@ -133,6 +133,18 @@ def get_help(intent, session):
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
+
+def exit_skill(intent, session):
+    card_title = None
+    session_attributes = {}
+    should_end_session = True
+
+    speech_output = ""
+    reprompt_text = speech_output
+
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
 # --------------- Events ------------------
 
 def on_session_started(session_started_request, session):
@@ -167,6 +179,10 @@ def on_intent(intent_request, session):
         return get_pep(intent, session)
     if intent_name == "AMAZON.HelpIntent":
         return get_help(intent, session)
+    if intent_name == "AMAZON.StopIntent":
+        return exit_skill(intent, session)
+    if intent_name == "AMAZON.CancelIntent":
+        return exit_skill(intent, session)
     else:
         raise ValueError("Invalid intent")
 
