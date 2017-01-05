@@ -4,7 +4,7 @@
 from __future__ import print_function
 
 obj_pep_text = {}
-obj_pep_text['1'] = "PEP 1 - PEP Purpose and Guidelines. PEP stands for Python Enhancement Proposal. A PEP is a design document providing information to the Python community, or describing a new feature for Python or its processes or environment. The PEP should provide a concise technical specification of the feature and a rationale for the feature. " + \
+obj_pep_text['1'] = "PEP stands for Python Enhancement Proposal. A PEP is a design document providing information to the Python community, or describing a new feature for Python or its processes or environment. The PEP should provide a concise technical specification of the feature and a rationale for the feature. " + \
                     "We intend PEPs to be the primary mechanisms for proposing major new features, for collecting community input on an issue, and for documenting the design decisions that have gone into Python. The PEP author is responsible for building consensus within the community and documenting dissenting opinions. " + \
                     "Because the PEPs are maintained as text files in a versioned repository, their revision history is the historical record of the feature proposal."
 obj_pep_text['4'] = "PEP 4 - Deprecation of Standard Modules. When new modules were added to the standard Python library in the past, it was not possible to foresee whether they would still be useful in the future. Even though Python Comes With Batteries Included, batteries may discharge over time. " + \
@@ -72,7 +72,10 @@ def get_welcome_response():
 
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to Pep Talk. "
+    speech_output = "Welcome to Pep Talk. " \
+                    "You may ask me to read any of the Python Enhancement Proposals by number. " \
+                    "For example, I can read you Proposal eight if you say, read me " \
+                    "Pep eight. What would you like me to do? "
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "Ask me to read you a pep. "
@@ -109,14 +112,19 @@ def get_pep(intent, session):
 
     if 'pep' in intent['slots']:
         pep_number = intent['slots']['pep']['value']
+        if pep_number is None or pep_number is '':
+            session_attributes = {}
+            card_title = None
+            speech_output = "Sorry I didn't understand that. Please ask me to read you another pep. "
+            reprompt_text = ""
         session_attributes = {'pep': pep_number}
         pep_text = get_pep_text(pep_number)
         card_title = pep_text[:pep_text.index('.')]
         speech_output = pep_text
         reprompt_text = ""
     else:
-        speech_output = "You didn't specify a number. "
-        reprompt_text = ""
+        speech_output = "You didn't specify a number. Please specify which number of pep you would like me to read. "
+        reprompt_text = speech_output
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
